@@ -1,0 +1,133 @@
+![图解每日一练.jpg](https://pic.leetcode-cn.com/1615817903-fzmpwZ-%E5%9B%BE%E8%A7%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83.jpg)
+
+---
+
+### 🧠 解题思路
+
+首先，该题使用暴破的时间复杂度$（n*m）$偏高，所以为了降低时间复杂度，我们采用另外一种方式：单调栈。
+
+可能有同学会问，该方法好在哪里呢？
+
+其实该方法采用先行将 $nums2$ 中的数字，对应的下一个更大的数字已经找出来，然后放到哈希表中，以供后面 $nums1$ 直接使用即可，我们这样做，可以将时间复杂度降到 $n + m$。
+
+具体流程如下：
+
+1. 创建一个临时栈，一个哈希表，然后遍历 $nums2$。
+2. 若当前栈无数据，则当前数字入栈备用。
+3. 若当前栈有数据，则用当前数字与栈顶比较：
+   3.1 当前数字 > 栈顶，代表栈顶对应下一个更大的数字就是当前数字，则将该组数字对应关系，记录到哈希表。
+   3.2 当前数字 < 栈顶，当前数字压入栈，供后续数字判断使用。
+4. 这样，我们就可以看到哈希表中存在部分 $nums2$ 数字的对应关系了，而栈中留下的数字，代表无下一个更大的数字，我们全部赋值为 $-1$ ，然后存入哈希表即可。
+5. 遍历 $nums1$，直接询问哈希表拿对应关系即可。
+
+---
+
+### 🎨 图解演示
+
+<![1.jpg](https://pic.leetcode-cn.com/1616932255-mHxZnV-1.jpg),![2.jpg](https://pic.leetcode-cn.com/1616932259-nSHmKA-2.jpg),![3.jpg](https://pic.leetcode-cn.com/1616932261-lgEdEH-3.jpg),![4.jpg](https://pic.leetcode-cn.com/1616932263-cZWQOF-4.jpg),![5.jpg](https://pic.leetcode-cn.com/1616932266-iufbjS-5.jpg),![6.jpg](https://pic.leetcode-cn.com/1616932268-zPDuSo-6.jpg),![7.jpg](https://pic.leetcode-cn.com/1616932271-GoNEBH-7.jpg),![8.jpg](https://pic.leetcode-cn.com/1616932273-NUELMF-8.jpg),![9.jpg](https://pic.leetcode-cn.com/1616932276-PfOuZi-9.jpg)>
+
+---
+
+### 🍭 示例代码
+
+* []
+
+```Javascript
+let nextGreaterElement = function(nums1, nums2) {
+    let map = new Map(), stack = [], ans = [];
+    nums2.forEach(item => {
+        while(stack.length && item > stack[stack.length-1]){
+            map.set(stack.pop(), item)
+        };
+        stack.push(item);
+    });
+    stack.forEach(item => map.set(item, -1));
+    nums1.forEach(item => ans.push(map.get(item)));
+    return ans;
+};
+```
+
+* []
+
+```Java
+public class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        Deque<Integer> stack = new ArrayDeque<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < len2; i++) {
+            while (!stack.isEmpty() && stack.peekLast() < nums2[i]) {
+                map.put(stack.removeLast(), nums2[i]);
+            }
+            stack.addLast(nums2[i]);
+        }
+        int[] res = new int[len1];
+        for (int i = 0; i < len1; i++) {
+            res[i] = map.getOrDefault(nums1[i], -1);
+        }
+        return res;
+    }
+}
+```
+
+* []
+
+```C++
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int>s;
+        unordered_map<int,int>num_map;
+        int size = nums1.size();
+        vector<int>vec_num;
+        for(int i = 0;i < nums2.size();++i)
+        {
+            while(!s.empty() && nums2[i]>s.top())
+            {
+                num_map[s.top()] = nums2[i];
+                s.pop();
+            }
+            s.push(nums2[i]);
+        }
+        while(!s.empty())
+        {
+            num_map[s.top()] = -1;
+            s.pop();
+        }
+        for(int i = 0;i<size;++i)
+        {
+            vec_num.push_back(num_map[nums1[i]]);
+        }
+        return vec_num;
+    }
+};
+```
+
+* []
+
+```Python
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        stack = []
+        res_dict = {i:-1 for i in nums2}
+        for i in nums2:
+            while stack and i > stack[-1]:
+                small = stack.pop()
+                res_dict[small] = i
+            stack.append(i)
+        res = []
+        for j in nums1:
+            res.append(res_dict[j])
+        return res
+```
+
+---
+
+### 转身挥手
+
+嘿，少年，做图不易，留下个赞或评论再走吧！谢啦~ 💐
+
+差点忘了，祝你牛年大吉 🐮 ，AC 和 Offer 📑 多多益善~
+
+⛲⛲⛲ 期待下次再见~

@@ -7,7 +7,7 @@ import java.util.HashSet;
  * 题目：存在重复元素
  * 题目编号：217
  * 时间：2023-09-03 17:36:54
- * 通过：？
+ * 通过：true
  */
 public class ContainsDuplicate {
     public static void main(String[] args) {

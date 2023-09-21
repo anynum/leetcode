@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
  * 题目：两个链表的第一个公共节点

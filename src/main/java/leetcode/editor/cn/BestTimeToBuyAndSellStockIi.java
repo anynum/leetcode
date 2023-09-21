@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSON;
  * 题目：买卖股票的最佳时机 II
  * 题目编号：122
  * 时间：2023-09-03 20:46:58
- * 通过：？
+ * 通过：true
  */
 public class BestTimeToBuyAndSellStockIi {
     public static void main(String[] args) {

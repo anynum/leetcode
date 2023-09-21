@@ -1,0 +1,45 @@
+    class Solution {
+
+        public double findMaxAverage(int[] nums, int k) {
+            // 1.定义需要维护的变量
+            int sum = 0;
+            double avg = Integer.MIN_VALUE;
+            // 2.定义窗口的首位
+            int l = 0, r = 0;
+            // 3.进入循环
+            while (r < nums.length) {
+                sum += nums[r];
+                if (r - l + 1 >= k) {
+                    avg = Math.max(avg, (double) sum / k);
+                    sum -= nums[l];
+                    l++;
+                }
+                r++;
+            }
+            return avg;
+        }
+
+        public double findMaxAverage2(int[] nums, int k) {
+            // 1.定义需要维护的变量
+            int sum = 0;
+            double avg = Integer.MIN_VALUE;
+            // 2.定义窗口的首位
+            int l = 0, r = k;
+            for (int i = 0; i < k; i++) {
+                sum += nums[i];
+            }
+            avg = (double) sum / k;
+            // 3.进入循环
+            while (r < nums.length) {
+                sum += nums[r];
+                sum -= nums[l];
+                avg = Math.max(avg, (double) sum / k);
+                l++;
+                r++;
+            }
+            return avg;
+        }
+    }
+
+//runtime:5 ms
+//memory:52.9 MB

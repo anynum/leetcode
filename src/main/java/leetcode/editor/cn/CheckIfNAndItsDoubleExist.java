@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 题目：检查整数及其两倍数是否存在
  * 题目编号：1346
  * 时间：2023-09-03 22:37:15
- * 通过：？
+ * 通过：true
  */
 public class CheckIfNAndItsDoubleExist {
     public static void main(String[] args) {

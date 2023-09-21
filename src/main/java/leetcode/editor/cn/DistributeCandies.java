@@ -8,7 +8,7 @@ import java.util.HashSet;
  * 题目：分糖果
  * 题目编号：575
  * 时间：2023-09-01 11:39:52
- * 通过：？
+ * 通过：true
  */
 public class DistributeCandies{
   public static void main(String[] args) {

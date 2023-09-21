@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：使用最小花费爬楼梯
  * 题目编号：746
  * 时间：2023-09-03 20:36:03
- * 通过：？
+ * 通过：true
  */
 public class MinCostClimbingStairs {
     public static void main(String[] args) {

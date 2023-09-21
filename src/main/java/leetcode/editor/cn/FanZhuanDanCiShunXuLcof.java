@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：翻转单词顺序
  * 题目编号：剑指 Offer 58 - I
  * 时间：2023-09-03 23:12:17
- * 通过：？
+ * 通过：true
  */
 public class FanZhuanDanCiShunXuLcof {
     public static void main(String[] args) {

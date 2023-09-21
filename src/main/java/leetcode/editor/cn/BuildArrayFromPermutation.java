@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：基于排列构建数组
  * 题目编号：1920
  * 时间：2023-09-03 22:44:48
- * 通过：？
+ * 通过：true
  */
 public class BuildArrayFromPermutation{
   public static void main(String[] args) {

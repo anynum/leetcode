@@ -1,12 +1,12 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
  * 题目：反转链表
  * 题目编号：206
  * 时间：2023-09-03 20:49:00
- * 通过：？
+ * 通过：true
  */
 public class ReverseLinkedList{
   public static void main(String[] args) {

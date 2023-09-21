@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 /**
  * 题目：二叉树的镜像

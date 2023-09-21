@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;

@@ -5,7 +5,7 @@ package leetcode.editor.cn;
  * 题目：盛最多水的容器
  * 题目编号：11
  * 时间：2023-08-31 16:59:41
- * 通过：？
+ * 通过：true
  */
 public class ContainerWithMostWater {
     public static void main(String[] args) {

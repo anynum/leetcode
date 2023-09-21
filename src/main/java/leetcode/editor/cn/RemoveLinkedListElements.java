@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
  * 题目：移除链表元素

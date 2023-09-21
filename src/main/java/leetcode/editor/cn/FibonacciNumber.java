@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：斐波那契数
  * 题目编号：509
  * 时间：2023-09-03 20:56:57
- * 通过：？
+ * 通过：true
  */
 public class FibonacciNumber {
     public static void main(String[] args) {

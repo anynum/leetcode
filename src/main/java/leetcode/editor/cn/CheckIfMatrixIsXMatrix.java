@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：判断矩阵是否是一个 X 矩阵
  * 题目编号：2319
  * 时间：2023-09-03 23:02:30
- * 通过：？
+ * 通过：true
  */
 public class CheckIfMatrixIsXMatrix {
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：统计各位数字之和为偶数的整数个数
  * 题目编号：2180
  * 时间：2023-09-03 22:45:43
- * 通过：？
+ * 通过：true
  */
 public class CountIntegersWithEvenDigitSum {
     public static void main(String[] args) {

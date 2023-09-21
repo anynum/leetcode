@@ -1,7 +1,7 @@
 package leetcode.editor.cn;
 
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 public class RotateList {
     public static void main(String[] args) {

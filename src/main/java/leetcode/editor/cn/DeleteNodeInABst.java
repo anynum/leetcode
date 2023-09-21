@@ -1,12 +1,12 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 /**
  * 题目：删除二叉搜索树中的节点
  * 题目编号：450
  * 时间：2023-09-02 21:10:06
- * 通过：？
+ * 通过：true
  */
 public class DeleteNodeInABst {
     public static void main(String[] args) {

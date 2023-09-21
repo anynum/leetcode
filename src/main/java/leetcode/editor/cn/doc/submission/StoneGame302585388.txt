@@ -1,0 +1,27 @@
+class Solution {
+    // 自己做的
+    int[][] cache = new int[500][500];
+    public boolean stoneGame(int[] piles) {
+        int len = piles.length;
+        int sum = Arrays.stream(piles).sum();
+        int max = Math.max(getMaxXY(1,len-1, piles)+piles[0], getMaxXY(0,len-2,piles)+piles[len-1]);
+        return max > sum-max;
+    }
+
+    private int getMaxXY(int x, int y, int[] piles){
+        if (cache[x][y] != 0){
+            return cache[x][y];
+        }
+        if (y-x == 1){
+            int last = Math.max(piles[x], piles[y]);
+            cache[x][y] = last;
+            return last;
+        }
+        int max = Math.max(getMaxXY(x + 1, y, piles) + piles[x], getMaxXY(x, y - 1, piles) + piles[y]);
+        cache[x][y] = max;
+
+        return max;
+    }
+}
+//runtime:11 ms
+//memory:45.7 MB

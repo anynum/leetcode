@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：仅执行一次字符串交换能否使两个字符串相等
  * 题目编号：1790
  * 时间：2023-09-03 22:42:30
- * 通过：？
+ * 通过：true
  */
 public class CheckIfOneStringSwapCanMakeStringsEqual {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import java.util.HashMap;
  * 题目：解密消息
  * 题目编号：2325
  * 时间：2023-09-03 23:02:42
- * 通过：？
+ * 通过：true
  */
 public class DecodeTheMessage {
     public static void main(String[] args) {

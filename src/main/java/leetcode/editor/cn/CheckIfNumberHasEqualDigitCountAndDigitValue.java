@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：判断一个数的数字计数是否等于数位的值
  * 题目编号：2283
  * 时间：2023-09-03 22:45:56
- * 通过：？
+ * 通过：true
  */
 public class CheckIfNumberHasEqualDigitCountAndDigitValue {
     public static void main(String[] args) {

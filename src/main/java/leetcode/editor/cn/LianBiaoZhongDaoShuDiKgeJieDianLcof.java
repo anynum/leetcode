@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
  * 题目：链表中倒数第k个节点

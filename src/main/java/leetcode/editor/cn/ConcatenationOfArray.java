@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：数组串联
  * 题目编号：1929
  * 时间：2023-09-03 22:45:02
- * 通过：？
+ * 通过：true
  */
 public class ConcatenationOfArray {
     public static void main(String[] args) {

@@ -7,7 +7,7 @@ import java.util.Map;
  * 题目：设计一个验证系统
  * 题目编号：1797
  * 时间：2023-09-03 22:42:49
- * 通过：？
+ * 通过：true
  */
 public class DesignAuthenticationManager {
     public static void main(String[] args) {

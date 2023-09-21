@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 import java.util.Stack;
 
@@ -8,7 +8,7 @@ import java.util.Stack;
  * 题目：反转链表 II
  * 题目编号：92
  * 时间：2023-09-03 17:32:11
- * 通过：？
+ * 通过：true
  */
 public class ReverseLinkedListIi {
     public static void main(String[] args) {
@@ -29,56 +29,17 @@ public class ReverseLinkedListIi {
      */
     class Solution {
         public ListNode reverseBetween(ListNode head, int left, int right) {
+            ListNode p1;
+            for (int i = 1; i <= right; i++) {
+                if (i == left){
 
-            if (left == right || head == null || head.next == null) {
-                return head;
+                }
             }
-
-            // 不需要翻转的
-            Stack<ListNode> stack1 = new Stack<>();
-            // 待翻转的
-            Stack<ListNode> stack2 = new Stack<>();
-
-            ListNode tmp = head;
-            ListNode pre = new ListNode();
-            ListNode post = new ListNode();
-            int len = 1;
-            while (tmp != null) {
-                if (len == left - 1) {
-                    pre = tmp;
-                }
-
-                if (len == right + 1) {
-                    post = tmp;
-                }
-
-                if (left <= len && len <= right) {
-                    stack2.push(tmp);
-                }
-                tmp = tmp.next;
-                len++;
-            }
-
-            if (left == 1) {
-                // 从第一个开始翻转
-                head = stack2.pop();
-                tmp = head;
-                while (!stack2.empty()) {
-                    tmp.next = stack2.pop();
-                    tmp = tmp.next;
-                    // 防止链表循环,并且
-                    // tmp.next = null;
-                }
-
-            } else {
-                while (!stack2.empty()) {
-                    pre.next = stack2.pop();
-                    pre = pre.next;
-                }
-                pre.next = post;
-            }
-            return head;
+            return null;
         }
+
+
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

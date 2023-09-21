@@ -1,0 +1,30 @@
+### 解题思路
+
+这一题其实就是找到数组中的第一大和第二大的数，我们只需要用 first 和 second 来表示第一大和第二大数的下标，然后遍历数组逐个比较即可。
+
+### 代码
+
+* typescript
+
+```typescript
+function maxProduct(nums: number[]): number {
+    let first = 0, second = 1
+    if (nums[1] > nums[0]) {
+        second = 0;
+        first = 1
+    }
+    for (let i = 2; i < nums.length; i++) {
+        if (nums[i] >= nums[first]) {
+            second = first
+            first = i
+        } else if (nums[i] >= nums[second]) {
+            second = i
+        }
+    }
+    return (nums[first] - 1) * (nums[second] - 1)
+};
+```
+
+* **时间复杂度：** O(n)，遍历一次数组。
+* **空间复杂度：** O(1)，仅使用常量空间。
+

@@ -1,0 +1,299 @@
+> Problem: [1333. 餐厅过滤器](https://leetcode.cn/problems/filter-restaurants-by-vegan-friendly-price-and-distance/description/)
+
+![image.png](https://pic.leetcode.cn/1695793998-PjqYZb-image.png)
+
+## 解题思路
+
+首先根据过滤条件（价格、距离和对素食者友好与否）对餐馆进行过滤，然后将符合条件的餐馆进行排序。
+
+排序算法在数据结构中扮演着十分重要的角色。常见排序算法包括「冒泡排序」、「插入排序」、「选择排序」、「快速排序」、「归并排序」、「堆排序」、「基数排序」和「桶排序」。
+
+本文除了介绍优先队列之外，还介绍了时间复杂度为 $O(nlogn)$ 的归并排序、快速排序和堆排序。其中最大堆优先对列和堆排序的 Java 运行时间为 3ms， 归并排序和快速排序的 Java 运行时间为 2ms。
+
+本题Java的运行时间为 0ms是一种特殊情况。返回数据的时候，如果在实现抽象类AbstractList的两个方法 get() and size()的时候生成数据，时间可以到达0ms，即使算法单独计算和运行的时候很慢。除去特殊的情况，2ms 是 Java目前最快的运行时间。
+
+## 复杂度
+
+- 时间复杂度:  $O(n)$
+
+- 空间复杂度:  $O(nlogn)$
+
+## 方法一 最大堆优先队列
+
+## Code
+
+* Java
+
+```Java
+
+class Solution {
+  public List<Integer> filterRestaurants(int[][] restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+
+      PriorityQueue<int[]> pq = new  PriorityQueue<int[]>((a, b)->a[1] != b[1] ? b[1] - a[1]:b[0] - a[0]);
+
+      for (int[] r:restaurants) {
+          if(veganFriendly == 1  && r[2] != veganFriendly) continue;
+          if (r[3] <= maxPrice && r[4] <= maxDistance) 
+              pq.offer(r);
+          
+      }
+
+      List<Integer> res = new ArrayList<Integer>();
+      while (!pq.isEmpty()) {
+          res.add(pq.poll()[0]);
+      }
+      return res;
+  }
+}
+
+
+```
+
+## 方法二 归并排序
+
+## Code
+
+* Java
+
+```Java
+
+class Solution {
+  static class Restaurant implements Comparable<Restaurant> {
+
+      private int id;
+      private int rating;
+      private long priority;
+      public Restaurant(int id, int rating) {
+          this.id = id;
+          this.rating = rating;
+          this.priority = rating * 100001L + id;
+      }
+      
+      @Override
+      public int compareTo(Restaurant o) {
+          return this.priority - o.priority  > 0? 1: -1;
+      }        
+  }
+
+  public List<Integer> filterRestaurants(int[][] restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+
+      List<Restaurant> list = new ArrayList<>();
+
+      for (int[] r:restaurants) {
+          if (r[3] > maxPrice || r[4] > maxDistance || r[2] < veganFriendly)
+              continue;
+
+           Restaurant restaurant = new Restaurant(r[0], r[1]);
+           list.add(restaurant);
+      }
+      
+      Restaurant[] arr = list.toArray(new Restaurant[0]);
+      mergeSort(arr, 0, arr.length - 1);
+
+      List<Integer> ans = new ArrayList<>();
+      for (Restaurant restaurant : arr) 
+          ans.add(restaurant.id);
+      return ans;
+  }
+
+  private void mergeSort(Restaurant[] restaurants, int start, int end) {
+
+      if (start >= end) return;
+      
+      int mid = (start + end) >> 1;
+      mergeSort(restaurants, start, mid);
+      mergeSort(restaurants, mid + 1, end);
+
+      Restaurant[] temp = new Restaurant[end - start + 1];
+
+      int index = 0, left = start, right = mid + 1;
+
+      while (left <= mid && right <= end) {
+          if (restaurants[left].compareTo(restaurants[right]) > 0) 
+              temp[index++] = restaurants[left++];
+          else
+              temp[index++] = restaurants[right++];
+      }
+
+      while (left <= mid) 
+          temp[index++] = restaurants[left++];
+
+      while (right <= end) 
+          temp[index++] = restaurants[right++];
+      
+      index = 0;
+      for (int i = start; i <= end; i++) 
+          restaurants[i] = temp[index++];
+  }
+
+}
+
+
+```
+
+## 方法三 快速排序
+
+## Code
+
+* Java
+
+```Java
+
+
+class Solution {
+  static class Restaurant implements Comparable<Restaurant> {
+
+      private int id;
+      private int rating;
+      private long priority;
+      public Restaurant(int id, int rating) {
+          this.id = id;
+          this.rating = rating;
+          this.priority = rating * 100001L + id;
+      }
+      
+      @Override
+      public int compareTo(Restaurant o) {
+          return this.priority - o.priority  > 0? 1: -1;
+      }        
+  }
+
+  public List<Integer> filterRestaurants(int[][] restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+
+      List<Restaurant> list = new ArrayList<>();
+
+      for (int[] r:restaurants) {
+          if (r[3] > maxPrice || r[4] > maxDistance || r[2] < veganFriendly)
+              continue;
+
+           Restaurant restaurant = new Restaurant(r[0], r[1]);
+           list.add(restaurant);
+      }
+      
+      Restaurant[] arr = list.toArray(new Restaurant[0]);
+      quickSort(arr, 0, arr.length - 1);
+
+      List<Integer> ans = new ArrayList<>();
+      for (Restaurant restaurant : arr) 
+          ans.add(restaurant.id);
+      return ans;
+  }
+
+  public void quickSort(Restaurant[] restaurants,int low, int high){
+      if (low < high) {
+          int pi = partition(restaurants,low, high);
+          quickSort(restaurants,low, pi - 1);
+          quickSort(restaurants, pi + 1, high);
+
+      }
+  }
+
+  public int partition(Restaurant[] restaurants, int low, int high){
+      
+      Restaurant pivot = restaurants[high]; 
+      int i = low -1;
+      for (int j = low; j <= high - 1; j++) {
+          if (restaurants[j].compareTo(pivot) > 0) {
+              i++;
+              swap(restaurants, i, j);
+          }
+      }
+      swap(restaurants, i + 1, high);
+      return (i + 1);
+  }
+
+  public void swap(Restaurant[] restaurants, int i, int j){
+      Restaurant temp = restaurants[i];
+      restaurants[i] = restaurants[j];
+      restaurants[j] = temp;
+  }
+
+}
+
+
+```
+
+## 方法四 堆排序
+
+## Code
+
+* Java
+
+```Java
+
+class Solution {
+  static class Restaurant implements Comparable<Restaurant> {
+
+      private int id;
+      private int rating;
+      private long priority;
+      public Restaurant(int id, int rating) {
+          this.id = id;
+          this.rating = rating;
+          this.priority = rating * 100001L + id;
+      }
+      
+      @Override
+      public int compareTo(Restaurant o) {
+          return this.priority - o.priority  > 0? 1: -1;
+      }        
+  }
+
+  public List<Integer> filterRestaurants(int[][] restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+
+      List<Restaurant> list = new ArrayList<>();
+
+      for (int[] r:restaurants) {
+          if (r[3] > maxPrice || r[4] > maxDistance || r[2] < veganFriendly)
+              continue;
+
+           Restaurant restaurant = new Restaurant(r[0], r[1]);
+           list.add(restaurant);
+      }
+      
+      Restaurant[] arr = list.toArray(new Restaurant[0]);
+      int n = arr.length;
+      buildMaxHeap(arr, n);
+      List<Integer> ans = new ArrayList<>();
+      int heapsize = n;
+      for(int i = n -1; i >= 0; --i){
+          ans.add(arr[0].id);
+          swap(arr, 0, i);
+          --heapsize;
+          maxHeapify(arr, 0, heapsize);
+      }
+
+      return ans;
+  }
+
+  public void buildMaxHeap(Restaurant[] restaurants,  int heapsize) {
+      for(int i = heapsize/2 ; i >=0;  --i)
+          maxHeapify(restaurants, i, heapsize);
+  }
+
+  public void maxHeapify(Restaurant[] restaurants, int i, int heapsize) {
+      int left = 2 * i + 1, right = 2 * i + 2, max = i;
+      if(left < heapsize && restaurants[left].compareTo(restaurants[max]) > 0)
+           max = left;
+
+      if(right < heapsize && restaurants[right].compareTo(restaurants[max]) > 0)
+          max = right; 
+
+      if(max != i){
+          swap(restaurants,i, max);
+          maxHeapify(restaurants, max, heapsize);
+      }
+     
+  }
+
+  public void swap(Restaurant[] restaurants, int i, int j){
+      Restaurant temp = restaurants[i];
+      restaurants[i] = restaurants[j];
+      restaurants[j] = temp;
+  }
+
+}
+
+
+```
+

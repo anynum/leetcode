@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：检查句子中的数字是否递增
  * 题目编号：2042
  * 时间：2023-09-03 22:45:22
- * 通过：？
+ * 通过：true
  */
 public class CheckIfNumbersAreAscendingInASentence {
     public static void main(String[] args) {

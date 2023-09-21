@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：爬楼梯
  * 题目编号：70
  * 时间：2023-09-03 20:44:24
- * 通过：？
+ * 通过：true
  */
 public class ClimbingStairs{
   public static void main(String[] args) {

@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：极大极小游戏
  * 题目编号：2293
  * 时间：2023-09-03 22:46:40
- * 通过：？
+ * 通过：true
  */
 public class MinMaxGame {
     public static void main(String[] args) {

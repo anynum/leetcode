@@ -1,0 +1,65 @@
+### 解题思路
+
+题意就是让我们求数组中的最大值和次大值
+
+# 【排序】
+
+直接将数组排序，取最大值即可
+
+优化：
+
+# 【一次遍历】
+
+上述方法可以求得最大值和次大值，但是还要对数组进行处理，显然不方便
+直接使用求最大值的基本方法，遍历数组，找最大值和次大值即可
+
+### 代码
+
+# 【排序】
+
+* c
+
+```c
+int cmp(const void * a, const void * b)//先排序
+{
+    return *(int *)b - *(int *)a;
+}
+int maxProduct(int* nums, int numsSize){
+    qsort(nums, numsSize, sizeof(int), cmp);
+    return (nums[0]-1)*(nums[1]-1);//然后取最大值和次大值
+}
+
+
+```
+
+# 【一次遍历】
+
+* c
+
+```c
+
+int maxProduct(int* nums, int numsSize){
+    int a = nums[0];//最大值
+    int b = nums[1];//次大值
+    if(a < b)//保证a最大
+    {
+        int t = a;
+        a = b;
+        b = t;
+    }
+    for(int i = 2; i < numsSize; i++)
+    {
+        if(a < nums[i])//先判断是否为最大值
+        {
+            b = a;//a的值肯定比b大
+            a = nums[i];
+        }
+        else if(b < nums[i])//再判断是否为次大值
+        {
+            b = nums[i];
+        }
+    }
+    return (a-1) * (b-1);
+}
+```
+

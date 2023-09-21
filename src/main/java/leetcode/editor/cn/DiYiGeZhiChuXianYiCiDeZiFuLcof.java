@@ -6,7 +6,7 @@ import java.util.HashMap;
  * 题目：第一个只出现一次的字符
  * 题目编号：剑指 Offer 50
  * 时间：2023-09-03 23:10:51
- * 通过：？
+ * 通过：true
  */
 public class DiYiGeZhiChuXianYiCiDeZiFuLcof{
   public static void main(String[] args) {

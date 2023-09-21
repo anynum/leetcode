@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,7 +9,7 @@ import java.util.Queue;
  * 题目：层数最深叶子节点的和
  * 题目编号：1302
  * 时间：2023-09-03 22:36:20
- * 通过：？
+ * 通过：true
  */
 public class DeepestLeavesSum{
   public static void main(String[] args) {

@@ -1,14 +1,15 @@
 package leetcode.editor.cn.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import leetcode.editor.cn.entity.ListNode;
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.ListNode;
+import com.common.entity.TreeNode;
 
 import java.util.*;
 
 public class LeetCodeUtils {
 
-    public static ListNode array2ListNode(int[] nums){
+    public static ListNode array2ListNode(int[] nums) {
         ListNode tmp = null;
         for (int i = nums.length - 1; i >= 0; i--) {
             ListNode node = new ListNode(nums[i]);
@@ -18,18 +19,31 @@ public class LeetCodeUtils {
         return tmp;
     }
 
-    public static void array2Tree(Object[] nums) {
-        TreeNode treeNode = new TreeNode();
-        Stack<TreeNode> stack = new Stack();
-        stack.push(treeNode);
-        int index = 0;
-        while (!stack.isEmpty()){
-            TreeNode pop = stack.pop();
-            if (nums[index] != null){
-                pop.val = Integer.parseInt(nums[index++].toString());
-            }
 
+    public static void printListNode(ListNode head) {
+        ArrayList<Integer> list = new ArrayList<>();
+        while (head != null){
+            list.add(head.val);
+            head = head.next;
         }
+        System.out.println(JSON.toJSONString(list));
+    }
+
+
+
+    public static TreeNode array2Tree(Object[] array, int index) {
+        TreeNode treeNode = null;
+        if (index < array.length) {
+            Integer value = (Integer) array[index];
+            if (value == null) {
+                return null;
+            }
+            treeNode = new TreeNode(value);
+            treeNode.left = array2Tree(array, 2 * index + 1);
+            treeNode.right = array2Tree(array, 2 * index + 2);
+            return treeNode;
+        }
+        return null;
     }
 
     public static List<Map<String, Map<String, JSONObject>>> splitDataMap(Map<String, Map<String, JSONObject>> originMap, int partitionNum) {

@@ -5,7 +5,7 @@ package leetcode.editor.cn;
  * 题目：二分查找
  * 题目编号：704
  * 时间：2023-08-30 16:41:28
- * 通过：？
+ * 通过：true
  */
 public class BinarySearch {
     public static void main(String[] args) {

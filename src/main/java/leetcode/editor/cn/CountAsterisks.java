@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：统计星号
  * 题目编号：2315
  * 时间：2023-09-03 23:02:15
- * 通过：？
+ * 通过：true
  */
 public class CountAsterisks{
   public static void main(String[] args) {

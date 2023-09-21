@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：计算应缴税款总额
  * 题目编号：2303
  * 时间：2023-09-03 22:49:05
- * 通过：？
+ * 通过：true
  */
 public class CalculateAmountPaidInTaxes {
     public static void main(String[] args) {

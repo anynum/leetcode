@@ -4,7 +4,7 @@ package leetcode.editor.cn;
  * 题目：检查字符串是否为数组前缀
  * 题目编号：1961
  * 时间：2023-09-03 20:37:16
- * 通过：？
+ * 通过：true
  */
 public class CheckIfStringIsAPrefixOfArray {
     public static void main(String[] args) {
@@ -15,7 +15,6 @@ public class CheckIfStringIsAPrefixOfArray {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isPrefixString(String s, String[] words) {
-
             StringBuilder p = new StringBuilder();
             for (String word : words) {
                 p.append(word);

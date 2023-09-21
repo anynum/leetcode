@@ -1,0 +1,92 @@
+## 双指针
+
+该题为经典的荷兰国旗问题，由于题目本质是要我们将数分成三段。
+
+因此除了使用一个变量 `idx` 代指处理到哪一个 $nums[i]$ 以外，至少还需要两个变量来代指三段的边界：
+
+* 变量 `l` 为下一个填入 `0` 的位置（因此范围 $[0, l - 1]$ 均为 `0`，初始化 $l = 0$，代表空集）
+* 变量 `r` 为下一个填入 `2` 的位置（因此范围 $[r + 1, n - 1]$ 均为 `2`，初始化 $r = n - 1$，代表空集)
+
+由于 $[0, idx - 1]$ 均为处理过的数值（即 `0` 和 `2` 必然都被分到了两端），同时 $l - 1$ 又是 `0` 的右边界，因此 $[l, idx - 1]$ 为 `1` 的区间，而 $[idx, r]$ 为未处理的数值。
+
+上述几个变量的定义是该题唯一需要理清的地方。
+
+不失一般性，根据当前处理到的 $nums[idx]$ 进行分情况讨论：
+
+* $nums[idx] = 0$：此时将其与位置 `l` 进行互换（记住 `l` 为下一个待填入 `0` 的位置，同时 $[l, idx - 1]$ 为 `1` 的区间），本质是将 $nums[idx]$ 的 `0` 和 $nums[l]$ 的 `1` 进行互换，因此互换后将 `l` 和 `idx` 进行右移；
+* $nums[idx] = 1$：由于 $[l, idx - 1]$ 本身就是 `1` 的区间，直接将 `idx` 进行右移即可；
+* $nums[idx] = 2$：此时将其与位置 `r` 进行互换（`r` 为下一个待填入 `2` 的位置，但 $[idx, r]$ 为未处理区间），也就是我们互换后，只能明确换到位置 $nums[r]$ 的位置为 `2`，可以对 `r` 进行左移，但不确定新 $nums[idx]$ 为何值，因此保持 `idx` 不变再入循环判断。
+
+最后当 $idx > r$（含义为未处理区间为空集），整个分三段过程结束。
+
+代码：
+
+* []
+
+```Java
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+        int l = 0, r = n - 1, idx = 0;
+        while (idx <= r) {
+            if (nums[idx] == 0) swap(nums, l++, idx++);
+            else if (nums[idx] == 1) idx++;
+            else swap(nums, idx, r--);
+        }
+    }
+    void swap(int[] nums, int i, int j) {
+        int c = nums[i];
+        nums[i] = nums[j];
+        nums[j] = c;
+    }
+}
+```
+
+* []
+
+```TypeScript
+function sortColors(nums: number[]): void {
+    const n = nums.length
+    let l = 0, r = n - 1, idx = 0
+    while (idx <= r) {
+        if (nums[idx] == 0) swap(nums, l++, idx++)
+        else if (nums[idx] == 1) idx++
+        else swap(nums, idx, r--)
+    }
+}
+function swap(nums: number[], i: number, j: number): void {
+    const c = nums[i]
+    nums[i] = nums[j]
+    nums[j] = c
+}
+```
+
+* []
+
+```Python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        n = len(nums)
+        l, r, idx = 0, n - 1, 0
+        while idx <= r:
+            if nums[idx] == 0:
+                nums[l], nums[idx] = nums[idx], nums[l]
+                l += 1
+                idx += 1
+            elif nums[idx] == 1:
+                idx += 1
+            else:
+                nums[r], nums[idx] = nums[idx], nums[r]
+                r -= 1
+```
+
+* 时间复杂度：$O(n)$
+* 空间复杂度：$O(1)$
+
+---
+
+## 最后
+
+**如果有帮助到你，请给题解点个赞和收藏，让更多的人看到 ~ ("▔□▔)/**
+
+所有题解已经加入 [刷题指南](https://github.com/SharingSource/LogicStack-LeetCode/wiki)，欢迎 star 哦 ~

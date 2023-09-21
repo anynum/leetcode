@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
 
@@ -8,7 +8,7 @@ import leetcode.editor.cn.entity.ListNode;
  * 题目：合并 K 个升序链表
  * 题目编号：23
  * 时间：2023-08-31 17:05:59
- * 通过：？
+ * 通过：true
  */
 public class MergeKSortedLists{
   public static void main(String[] args) {

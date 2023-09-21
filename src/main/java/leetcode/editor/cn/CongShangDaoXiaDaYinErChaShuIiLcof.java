@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import java.util.Queue;
  * 题目：从上到下打印二叉树 II
  * 题目编号：剑指 Offer 32 - II
  * 时间：2023-09-03 23:08:14
- * 通过：？
+ * 通过：true
  */
 public class CongShangDaoXiaDaYinErChaShuIiLcof{
   public static void main(String[] args) {

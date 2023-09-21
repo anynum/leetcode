@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 题目：扑克牌中的顺子
  * 题目编号：剑指 Offer 61
  * 时间：2023-09-01 16:39:02
- * 通过：？
+ * 通过：true
  */
 public class BuKePaiZhongDeShunZiLcof {
     public static void main(String[] args) {

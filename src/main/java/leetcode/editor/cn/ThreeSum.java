@@ -21,10 +21,15 @@ public class ThreeSum {
     class Solution {
         public List<List<Integer>> threeSum(int[] nums) {
             Arrays.sort(nums);
+
             List<List<Integer>> ans = new ArrayList<>();
+
             for (int k = 0; k < nums.length - 2; k++) {
                 if (nums[k] > 0) break;
+
+                // 重复的跳过
                 if (k > 0 && nums[k] == nums[k - 1]) continue;
+
                 int left = k + 1, right = nums.length - 1;
                 while (left < right) {
                     int sum = nums[k] + nums[left] + nums[right];

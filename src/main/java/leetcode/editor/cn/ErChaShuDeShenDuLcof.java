@@ -1,12 +1,12 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 /**
  * 题目：二叉树的深度
  * 题目编号：剑指 Offer 55 - I
  * 时间：2023-09-01 16:35:57
- * 通过：？
+ * 通过：true
  */
 public class ErChaShuDeShenDuLcof{
   public static void main(String[] args) {

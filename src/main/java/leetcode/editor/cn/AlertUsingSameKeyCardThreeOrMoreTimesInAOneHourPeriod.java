@@ -6,7 +6,7 @@ import java.util.*;
  * 题目：警告一小时内使用相同员工卡大于等于三次的人
  * 题目编号：1604
  * 时间：2023-09-03 22:39:30
- * 通过：？
+ * 通过：true
  */
 public class AlertUsingSameKeyCardThreeOrMoreTimesInAOneHourPeriod {
     public static void main(String[] args) {

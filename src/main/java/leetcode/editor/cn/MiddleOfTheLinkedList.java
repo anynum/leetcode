@@ -1,12 +1,12 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
  * 题目：链表的中间结点
  * 题目编号：876
  * 时间：2023-09-03 22:33:16
- * 通过：？
+ * 通过：true
  */
 public class MiddleOfTheLinkedList{
   public static void main(String[] args) {

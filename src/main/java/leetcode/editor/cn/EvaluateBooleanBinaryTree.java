@@ -1,12 +1,12 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 /**
  * 题目：计算布尔二叉树的值
  * 题目编号：2331
  * 时间：2023-09-03 23:03:00
- * 通过：？
+ * 通过：true
  */
 public class EvaluateBooleanBinaryTree{
   public static void main(String[] args) {

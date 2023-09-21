@@ -1,12 +1,12 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.ListNode;
+import com.common.entity.ListNode;
 
 /**
  * 题目：合并两个排序的链表
  * 题目编号：剑指 Offer 25
  * 时间：2023-09-03 23:06:45
- * 通过：？
+ * 通过：true
  */
 public class HeBingLiangGePaiXuDeLianBiaoLcof {
     public static void main(String[] args) {

@@ -1,0 +1,47 @@
+* 
+
+```
+
+public class Solution {
+
+
+    public int[] sortArray(int[] nums) {
+        int len = nums.length;
+        quickSort(nums, 0, len - 1);
+        return nums;
+    }
+
+    public void quickSort(int arr[], int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(arr, begin, end);
+
+            quickSort(arr, begin, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, end);
+        }
+    }
+
+    public int partition(int[] array, int low, int high) {
+        int x =  new Random().nextInt(high - low + 1) + low;
+        swap(array,x,high);
+
+        int pivot = array[high];
+        int i = low;  // Keeps track of index at which we add an element less        than pivot.
+        for (int j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                swap(array, i, j);
+                i++;
+            }
+        }
+        swap(array, i, high);
+        return i; // returns the index at which partition happened or correct pivot position.
+
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+```
+

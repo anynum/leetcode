@@ -1,0 +1,2 @@
+如果有一个自然数 a 能被自然数 b 整除，则称 a 为 b 的倍数， b 为 a 的约数。几个自然数公有的约数，叫做这几个自然数的公约数。公约数中最大的一个公约数，称为这几个自然数的最大公约数。<br> <br> 输入 a 和 b , 请返回 a 和 b 的最大公约数。<br> <br> <div>  数据范围：<img src="https://www.nowcoder.com/equation?tex=1%20%5Cle%20a%2Cb%20%5Cle%2010%5E9"> </div> <div>  进阶：空间复杂度 <img src="https://www.nowcoder.com/equation?tex=O(1)">，时间复杂度 <img src="https://www.nowcoder.com/equation?tex=O(logn)"><br> </div><div><br></div><div><div>Related Topics</div><div><li>基础数学</li></div></div><br>示例:<br>输入:3,6<br>输出:3
+<br>

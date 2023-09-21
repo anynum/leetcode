@@ -1,0 +1,48 @@
+    class Solution {
+        Random random = new Random();
+        public int[] sortArray(int[] nums) {
+            quickSort(nums, 0, nums.length - 1);
+            return nums;
+        }
+
+        private void quickSort(int[] nums, int l, int r) {
+            if (l >= r){
+                return;
+            }
+            int pivot = (r - l) / 2 + l;
+            swap(nums, l, pivot);
+            int pivotIndex = partition(nums, l, r);
+            quickSort(nums, l, pivotIndex);
+            quickSort(nums, pivotIndex + 1, r);
+        }
+
+        private int partition(int[] nums, int l, int r) {
+            int j = l + 1;
+            for (int i = j; i <= r; i++) {
+                if (nums[i] < nums[l]){
+                    if (i != j){
+                        swap(nums, i, j);
+                    }
+                    j++;
+                }
+            }
+            swap(nums, l, j - 1);
+            return j - 1;
+        }
+
+        private void swap(int[] arr, int i, int j) {
+            int tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+    }
+
+//runtime:N/A
+//memory:N/A
+//total_testcases:21
+//total_correct:21
+//input_formatted:
+//expected_output:
+//code_output:
+//runtime_error:
+//last_testcase:

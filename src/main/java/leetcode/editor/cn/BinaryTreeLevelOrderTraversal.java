@@ -1,6 +1,6 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.entity.TreeNode;
+import com.common.entity.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import java.util.Queue;
  * 题目：二叉树的层序遍历
  * 题目编号：102
  * 时间：2023-09-03 20:46:20
- * 通过：？
+ * 通过：true
  */
 public class BinaryTreeLevelOrderTraversal {
     public static void main(String[] args) {
