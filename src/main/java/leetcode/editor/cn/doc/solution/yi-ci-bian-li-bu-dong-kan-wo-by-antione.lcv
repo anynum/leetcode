@@ -1,0 +1,36 @@
+#### 解题思路
+
+- max存的是`[0, i]`的最大值，pos是left数组的分界点，leftMax存的是left数组`[0, pos]`的最大值
+
+- 当`A[i] < leftMax`时，为了满足left数组的数必须小于等于right中的数，必须将当前A[i]放入left数组，同时更新leftMax和pos，当`A[i] = leftMax`时暂时没必要将A[i]放入left数组，因为我们求的是最小的left
+
+- 如果`A[i] >= leftMax`，那么A[i]可以暂时放在right数组，若后面有`A[j] < leftMax`时才必须将A[i]放入left数组
+
+**参考代码**
+
+* java
+
+```java
+class Solution {
+    public int partitionDisjoint(int[] A) {
+        int n = A.length;
+        int max = A[0];
+        int leftMax = A[0];
+        int pos = 0;
+        for(int i = 0; i < n; i++){
+            max = Math.max(max, A[i]);
+            if(A[i] >= leftMax) 
+                continue;
+            leftMax = max;
+            pos = i;
+        }
+        return pos+1;
+    }
+}
+```
+
+#### 复杂度分析
+
+- 时间复杂度：$O(n)$
+- 空间复杂度：$O(1)$
+
